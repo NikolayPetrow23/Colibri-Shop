@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+
+{% block title %}
+    Admin Dashboard
+{% endblock %}
+
+{% block css %}
+<!--  <link href="{% static '' %}" rel="stylesheet">-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Подключение Bootstrap JS и Popper.js (необходим для модальных окон и других компонентов) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div style="background-color: whitesmoke">
+
+        {% include 'admin_custom/admin_group_buttons.html' %}
+
+        <div class="row">
+            <div class="container py-5 col-lg-2 mx-3">
+                <i class="fa-solid fa-envelope fa-2xl" style="color: #919191; position: absolute; top: 36%; left: 43%"></i>
+                <span class="text-center font-weight-light" style="color: #919191; position: absolute; top: 60%; left: 44%">mail</span>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3">
+                <i class="fa-solid fa-paper-plane fa-2xl" style="color: #919191; position: absolute; top: 37%; left:43%"></i>
+                <span class="text-center font-weight-light" style="color: #919191; position: absolute; top: 62%; left: 36%">telegram</span>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light text-center" style="position: absolute; top: 5%; left: 20%">Заказов за месяц</span>
+                <h1 class="text-center font-weight-light">73</h1>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light text-center" style="position: absolute; top: 5%; left: 20%">Доход за месяц</span>
+                <h2 class="text-center font-weight-light">123 143 ₽</h2>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light text-center" style="position: absolute; top: 5%; left: 22%">Пользователей</span>
+                <h1 class="text-center font-weight-light">78</h1>
+            </div>
+
+        </div>
+
+        <div class="row py-4">
+            <div class="container py-5 col-lg-2 mx-3">
+                <i class="fa-brands fa-instagram fa-2xl" style="color: #919191; position: absolute; top: 32%; left: 43%"></i>
+                <span class="text-center font-weight-light" style="color: #919191; position: absolute; top: 57%; left: 33%">instagram</span>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3">
+                <i class="fa-brands fa-facebook fa-2xl" style="color: #919191; position: absolute; top: 32%; left: 43%"></i>
+                <span class="text-center font-weight-light" style="color: #919191; position: absolute; top: 57%; left: 35%">facebook</span>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light text-center" style="position: absolute; top: 5%; left: 12%">Заказов за все время</span>
+                <h1 class="text-center font-weight-light">170</h1>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light text-center" style="position: absolute; top: 5%; left: 15%">Доход за все время</span>
+                <h2 class="text-center font-weight-light">781 954 ₽</h2>
+            </div>
+            <div class="container py-5 col-lg-2 mx-3" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light text-center" style="position: absolute; top: 5%; left: 12%">Товаров на площадке</span>
+                <h1 class="text-center font-weight-light">37</h1>
+            </div>
+
+        </div>
+
+        <div class="py-5">
+            <div class="container py-5" style="background-color: white; border-radius: 10px">
+                <div style="width: 80%; margin: 0 auto;" class="py-5">
+                    <canvas id="myChart" class="py-5"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+        </div>
+
+    </div>
+
+    <script class="py-5">
+            // Месяцы для отображения на графике
+            const months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+
+            // Данные заказов за каждый месяц (пример данных)
+            const orderData = [12, 19, 3, 5, 2, 3, 7, 8, 10, 15, 9, 20];
+
+            // Получаем элемент canvas для графика
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            // Создаем график
+            const myChart = new Chart(ctx, {
+                type: 'bar', // Тип графика (столбчатая диаграмма)
+                data: {
+                    labels: months, // Месяцы на оси X
+                    datasets: [{
+                        label: 'Количество заказов',
+                        data: orderData, // Данные заказов
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Цвет столбцов
+                        borderColor: 'rgba(75, 192, 192, 1)', // Цвет границы столбцов
+                        borderWidth: 1 // Ширина границы столбцов
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true // Начинать ось Y с 0
+                        }
+                    }
+                }
+            });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}

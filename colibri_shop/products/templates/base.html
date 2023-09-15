@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+
+    {% block css %}{% endblock %}
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+  {% include 'includes/headers.html' %}
+
+<!-- Page Content -->
+<!--   <div style="background-color: #f5f5f5">-->
+      {% block content %}
+      {% endblock %}
+<!--   </div>-->
+<!-- Bootstrap core JavaScript -->
+  {% include 'includes/Bootstrap_and_JS.html' %}
+
+
+  {% include 'includes/footer.html' %}
+<!--  {% block footer %}-->
+<!--  {% endblock %}-->
+</body>
+
+</html>

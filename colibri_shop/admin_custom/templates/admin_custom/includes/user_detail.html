@@ -1,0 +1,60 @@
+{% load static %}
+<div class="container col-lg-6 py-4" style="background-color: white; border-radius: 10px">
+  <div class="row py-2" style="background-color: whitesmoke">
+    <span class="font-weight-light small text-center">Изменить пользователя</span>
+  </div>
+
+  <div class="py-3">
+
+    <div class="col-lg-12 text-center">
+      <img width="180" height="180"
+           src="{% if users.image %}{{ users.image.url }}{% else %}{% static 'vendor/img/users/default_avatar.jpg' %}{% endif %}"
+           class="img-thumbnail" style="border-radius: 100%">
+    </div>
+
+    <center>
+      <form action="{% url 'admin_custom:admin_users_update' users.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row col-lg-6">
+          <label class="small mb-1" for="{{ form.first_name.id_for_label }}">
+            Имя
+          </label>
+          {{ form.first_name }}
+        </div>
+        <div class="form-row col-lg-6">
+          <label class="small mb-1" for="{{ form.last_name.id_for_label }}">
+            Фамилия
+          </label>
+          {{ form.last_name }}
+        </div>
+        <div class="form-row col-lg-6">
+          <label class="small mb-1" for="{{ form.username.id_for_label }}">
+            Имя пользователя
+          </label>
+          {{ form.username }}
+        </div>
+        <div class="form-row col-lg-6">
+          <label class="small mb-1" for="{{ form.email.id_for_label }}">
+            Адрес электронной почты
+          </label>
+          {{ form.email }}
+        </div>
+        <div class="form-row col-lg-6 py-3">
+          <div class="col-lg-12 col-12">
+            <div class="custom-file">
+              {{ form.image }}
+              <label class="custom-file-label" for="{{ form.image.id_for_label }}">Изображение</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row col-lg-6 py-3">
+          <p class="col-lg-5">Персонал: {{ form.is_staff }}</p>
+          <p class="col-lg-5">Подтвержена почта: {{ form.is_verified_email }}</p>
+        </div>
+
+        <input class="btn font-weight-light" type="submit" style="background-color: whitesmoke; border-radius: 10px" value="Сохранить">
+
+      </form>
+    </center>
+  </div>
+</div>

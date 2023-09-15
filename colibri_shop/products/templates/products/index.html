@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+  {% load static %}
+
+  {% block title %}
+    Test-Title
+  {% endblock %}
+
+  {% block css %}
+    <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+  {% endblock %}
+
+  {% block content %}
+  <div class="position-relative">
+      <img src="{% static 'vendor/img/index/gradient.jpeg' %}" class="img-fluid rounded" height="250" width="100%">
+      <div class="centered fixed position-absolute top-50 start-50 translate-middle">
+          <h1 class="text-center"><b>Summer Sale, Up To 80% Off!</b></h1>
+      </div>
+  </div>
+  <div>
+    <img src="{% static 'vendor/img/index/summershop.jpg' %}" class="img-fluid rounded">
+  </div>
+  <div class="position-relative">
+      <img src="{% static 'vendor/gif/donat.gif' %}"class="img-fluid rounded"  alt="description image" height="250" width="100%">
+      <div class="gif">
+          <h1 class="text-center"><p style="color: black">New this season!</p></h1>
+      </div>
+  </div>
+
+  <div>
+    <img src="{% static 'vendor/img/index/new-in.jpg' %}" class="img-fluid rounded">
+  </div>
+  {% endblock %}

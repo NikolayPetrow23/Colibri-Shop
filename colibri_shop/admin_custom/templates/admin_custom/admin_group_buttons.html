@@ -1,0 +1,59 @@
+{% load static %}
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-lg-1">
+            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="background-color: white; border-radius: 10px">
+                    <i class="fa-solid fa-bars fa-lg" style="color: #00c7fc;"></i>
+                </button>
+            </a>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light">Добавить товар</span>
+            </button>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light">Добавить брэнд</span>
+            </button>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light">Добавить группу</span>
+            </button>
+        </div>
+        <div class="col-lg-2">
+            <a href="{% url 'admin_custom:admin_users' %}">
+                <button class="btn" style="background-color: white; border-radius: 10px">
+                    <span class="font-weight-light">Пользователи</span>
+                </button>
+            </a>
+        </div>
+        <div class="col-lg-2 ">
+            <button class="btn" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light">Просмотр заказов</span>
+            </button>
+        </div>
+        <div class="col-lg-1">
+            <button class="btn" style="background-color: white; border-radius: 10px">
+                <span class="font-weight-light">Корзины</span>
+            </button>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header"> <!--style="background-color: #06bdbd"-->
+            <img src="{% static 'vendor/img/headers/label.png' %}" width="70px" height="50px">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel"><b>COLIBRI</b><span style="color: #06bdbd">_ADMIN</span></h5>
+            <hr>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

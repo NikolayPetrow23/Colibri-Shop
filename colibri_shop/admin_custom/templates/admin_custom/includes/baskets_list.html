@@ -1,0 +1,36 @@
+{% load static %}
+<!--    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="position: absolute; top: 10px; left: 33px">-->
+<!--    <i class="fa-solid fa-chevron-down fa-2xs" style="color: #aaaaaa; position: absolute; top: 17px; left: 32px"></i>-->
+    <div class="row py-2" style="background-color: #f5f5f5">
+
+        {% for field in fields %}
+            {% with field_name=field.field.name %}
+                <span class="font-weight-light text-muted small col-lg-2 text-center">{{ field.new_name }}</span>
+            {% endwith %}
+        {% endfor %}
+
+        <span class="font-weight-light text-muted small col-lg-2 text-center">
+            ACTION
+        </span>
+
+    </div>
+
+    {% for basket in basket_model %}
+        <div class="row py-3 font-weight-light small text-center border-bottom">
+            <span class="col-lg-2"><a href="#" style="color: black">{{ basket.id }}</a></span>
+            <span class="col-lg-2">{{ basket.user }}</span>
+            <span class="col-lg-2">{{ basket.product }}</span>
+            <span class="col-lg-2">{{ basket.quantity }}</span>
+            <span class="col-lg-2">{{ basket.date_created }}</span>
+            <span class="col-lg-2">
+                <i class="fa-solid fa-pencil" style="color: #919191;"></i>
+                <i class="fa-solid fa-trash" style="color: #919191; padding-left: 5px"></i>
+            </span>
+        </div>
+
+        {% if forloop.last %}
+            <div class="row py-3" style="background-color: whitesmoke">
+            </div>
+        {% endif %}
+
+    {% endfor %}

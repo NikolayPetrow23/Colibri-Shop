@@ -1,0 +1,48 @@
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    color: #fff3cd;
+}
+
+.gif{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    color: #fff3cd;
+}
+
+div .position-relative img {
+    height: 100%;
+    width: 100%
+}
+
+div#cooperation > .py-3 > center > .row > .col-12 > img {
+    width: 100px;
+    height: 100px;
+}
+
+div#cooperation .py-3 center  .row  .col-12 .py-3 p {
+    color: #5a6268;
+}
+/*body {*/
+/*    background: url("../img/index/summershop.jpg") no-repeat center top fixed;*/
+/*    -webkit-background-size: cover;*/
+/*    -moz-background-size: cover;*/
+/*    background-size: cover;*/
+/*    -o-background-size: cover;*/
+/*    padding-top: 56px;*/
+/*}*/
+
+/*#start-purchase-btn {*/
+/*    background-color: #23364e;*/
+/*    border-color: #23364e;*/
+/*    color: white;*/
+/*}*/
+
+/*#start-purchase-link {*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*}*/

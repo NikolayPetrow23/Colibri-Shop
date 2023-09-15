@@ -1,0 +1,7 @@
+body {
+    padding-top: 56px;
+}
+
+.container .row .col-lg-12 form .form-row .col-lg-12 {
+    width: 150px;
+}
